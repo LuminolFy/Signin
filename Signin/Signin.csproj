@@ -4,6 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
@@ -12,9 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="GreenOnions.Interface">
-      <HintPath>bin\Release\net6.0\GreenOnions.Interface.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\..\Code\Mirai\GreenOnions\GreenOnions.Interface\GreenOnions.Interface.csproj" />
   </ItemGroup>
 
 

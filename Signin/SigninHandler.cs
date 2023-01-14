@@ -1,6 +1,4 @@
-﻿using GreenOnions.Interface;
-using System.Data.SQLite;
-using System.Reflection;
+﻿using System.Data.SQLite;
 
 namespace Signin
 {
@@ -11,12 +9,12 @@ namespace Signin
         /// </summary>
         /// <param name="qqId">请求签到的QQ号</param>
         /// <returns></returns>
-        public static string Signin(long qqId)
+        public static string Signin(string dbPath, long qqId)
         {
-            string dbPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "record.db");  //数据库位置(此位置为Signin.dll相同目录下的record.db文件)
+            string dbFileName = Path.Combine(dbPath, "record.db");  //数据库位置(此位置为Signin.dll相同目录下的record.db文件)
             try
             {
-                using (SQLiteConnection conn = new SQLiteConnection($@"Data Source={dbPath};Version=3"))  //连接数据库
+                using (SQLiteConnection conn = new SQLiteConnection($@"Data Source={dbFileName};Version=3"))  //连接数据库
                 {
                     conn.Open();  //打开数据库
                     using (SQLiteCommand commandSelect = new SQLiteCommand($"SELECT * FROM Signined WHERE Id = {qqId}", conn))  //查询传入的QQ号是否有记录
