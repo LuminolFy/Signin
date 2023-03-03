@@ -6,7 +6,7 @@ namespace Signin
     /// <summary>
     /// 葱葱插件实现类
     /// </summary>
-    public class GreenOnionsPlugin : IPlugin
+    public class GreenOnionsPlugin : IMessagePlugin
     {
         private string? _pluginPath;
         public string Name => "签到";
